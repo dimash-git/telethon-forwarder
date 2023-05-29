@@ -1,5 +1,5 @@
 from telethon import TelegramClient, events
-from config import API_HASH, API_ID
+from config import API_HASH, API_ID, PHONE
 
 client = TelegramClient('session', API_ID, API_HASH)
 
@@ -8,5 +8,5 @@ client = TelegramClient('session', API_ID, API_HASH)
 async def my_event_handler(event):
     await client.forward_messages('@resend_freelance_jobs_bot', event.message)
 
-client.start()
+client.start(phone=PHONE)
 client.run_until_disconnected()
